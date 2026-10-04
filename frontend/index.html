@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StreamFlix</title>
+  <style>
+    body{margin:0;font-family:system-ui,sans-serif;background:#141414;color:#fff}
+    header{padding:20px 32px;background:#000;color:#e50914;font-size:28px;font-weight:700}
+    main{padding:32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+    .card{background:#222;border-radius:8px;padding:20px}
+    .card h3{margin:0 0 8px}.card p{margin:4px 0;color:#aaa}
+  </style>
+</head>
+<body>
+  <header>STREAMFLIX</header>
+  <main id="list">Loading...</main>
+  <script>
+    fetch('/api/movies')
+      .then(r => r.json())
+      .then(movies => {
+        document.getElementById('list').innerHTML = movies.map(m =>
+          `<div class="card"><h3>${m.title}</h3><p>${m.genre}</p><p>${m.year}</p></div>`).join('');
+      })
+      .catch(() => document.getElementById('list').textContent = 'Could not load movies');
+  </script>
+</body>
+</html>
