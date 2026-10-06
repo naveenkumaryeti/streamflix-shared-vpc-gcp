@@ -26,6 +26,12 @@ Runs locally with Docker Compose. Subnets mirror the StreamFlix Shared VPC desig
 
 Rule: each tier only talks to the tier next to it. The browser never reaches the backend or DB directly.
 
+<img width="1536" height="1024" alt="StreamFlix Shared VPC Architecture" src="https://github.com/user-attachments/assets/c57430fa-f489-4a82-b549-4a6fadec55c1" />
+
+
+
+
+
 ## 2. Folder structure
 
 ```
